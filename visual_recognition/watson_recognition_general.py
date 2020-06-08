@@ -32,3 +32,11 @@ with open('../datasets/imagens/lions/imagem_test1.jpg', 'rb') as one_image_file:
 print("Conteúdo JSON resultante do classificador 'default':")
 print(json.dumps(classes1, indent=2))
 
+def minha_funcao_imagens(arquivo: str, classificador: str) -> dict:
+    # Coloque aqui o código da função.
+
+    # Coloque aqui o retorno correto da função.
+    variavel_retorno = {}
+    return variavel_retorno
+
+
