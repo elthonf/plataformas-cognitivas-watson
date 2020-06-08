@@ -32,11 +32,3 @@ with open('../datasets/imagens/lions/imagem_test1.jpg', 'rb') as one_image_file:
 print("Conteúdo JSON resultante do classificador 'default':")
 print(json.dumps(classes1, indent=2))
 
-
-with open('../datasets/imagens/lions/imagem_test1.jpg', 'rb') as one_image_file:
-    classes2 = visual_recognition.classify(images_file=one_image_file,
-                                           threshold=0.6,
-                                           classifier_ids='explicit').get_result()
-print("Conteúdo JSON resultante do classificador 'explicit':")
-print(json.dumps(classes2, indent=2))
-
