@@ -14,6 +14,7 @@ if os.path.exists('mykey.json'):
     with open('mykey.json') as json_file:
         mykey = json.load(json_file)
 
+
 authenticator = IAMAuthenticator(mykey["key"])
 
 visual_recognition = VisualRecognitionV3(version='2018-03-19',
@@ -24,12 +25,15 @@ visual_recognition.set_service_url(mykey["url"])
 #desabilita SSL, caso sua rede ou laboratório exijam isso
 #visual_recognition.disable_SSL_verification()
 
+classifier_ids_possiveis = ['default', 'food', 'explicit']
+classifier_id = classifier_ids_possiveis[0]
+
 # Atenção ao caminho relativo, pode ser necessário trocar ".." por "."
-with open('../datasets/imagens/lions/imagem_test1.jpg', 'rb') as one_image_file:
+with open('../datasets/imagens/food/bacalhoada.jpg', 'rb') as one_image_file:
     classes1 = visual_recognition.classify(images_file=one_image_file,
                                            threshold=0.6,
-                                           classifier_ids='default').get_result()
-print("Conteúdo JSON resultante do classificador 'default':")
+                                           classifier_ids=classifier_id).get_result()
+print(f"Conteúdo JSON resultante do classificador '{classifier_id}':")
 print(json.dumps(classes1, indent=2))
 
 def minha_funcao_imagens(arquivo: str, classificador: str) -> dict:
