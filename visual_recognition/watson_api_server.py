@@ -28,8 +28,6 @@ visual_recognition.set_service_url(mykey["url"])
 #desabilita SSL, caso sua rede ou laboratório exijam isso
 #visual_recognition.disable_SSL_verification()
 
-
-
 @app.route("/minha_funcao_imagens", methods=['GET', 'POST', 'PUT'])
 def minha_funcao_imagens(request=request) -> dict:
     classifier_id = request.args.get("classifier_id", 'default')
@@ -48,4 +46,6 @@ def minha_funcao_imagens(request=request) -> dict:
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True, threaded=True)
 
+
+# Coloque aqui o RM do(s) aluno(s): XXXXXXXXX
 
